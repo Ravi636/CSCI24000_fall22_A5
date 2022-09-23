@@ -83,48 +83,37 @@ int main(){
 		sum = 0;
 		cLine = "";
 		outFile << endl;
-		//clear the stream
-		/* ss.clear();
-		ss.str("");
-		
-		//sending current line to the stream
-		ss.str(cLine);
-		ss >> text;
-		fLetter = text[0];
-		
-	
-
-		if(isdigit(fLetter)){
-	//		getline(ss, sNum, ',');
-			cout << sNum;
-			std::cout << "Hello " << ss.str() << " \n";
-			while(getline(ss, sNum, ',')){
-		
-				//convert a string to int	
-				std::cout << "Please work\n";
-				num += stoi(sNum);
-				cout << "s";
-			}// end while	
-
-		}// end if	
-		else {
-			getline(ss,text);
-	
-			for (int i = 0; i < num; i++){
-				outFile << text << " ";
-
-			}// end for loop
-	
-			num = 0;
-			outFile << endl;
-		}// end else
-		
-
-		
-		cLine = "";
-		*/
 	}// end while loop	
 	
+	inFile.close();
+	outFile.close();
+
+	string name;
+	int age;
+	string major;
+	int size;
+
+	cout << endl << "Enter your Name:";
+	cin >> name;
+	cout << endl << "Enter your age:";
+	cin >> age;
+	cout << endl <<"Enter your major:";
+	cin >> major;
+	
+	inFile.open("input.txt");
+	outFile.open("output.txt");
+	
+	while(getline(inFile, cLine)){
+			
+		for (int i = 0; i < N; i++) {
+		          
+		        cout<< cLine[i]<< " ";
+		
+		}// end for loop	
+
+	}// end while loop
+
+
 	inFile.close();
 	outFile.close();
 }
