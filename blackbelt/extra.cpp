@@ -7,16 +7,15 @@
 #include <cctype>
 
 
-using namespace std;
 
 
 int main(){
 	
-	ifstream inFile;
-	ofstream outFile;
-	string cLine;
-	stringstream ss("");
-	string sNum;
+	std::ifstream inFile;
+	std::ofstream outFile;
+	std::string cLine;
+	std::stringstream ss("");
+	std::string sNum;
 	char fLetter;
 	double sum = 0;
 	double num = 0;
@@ -24,12 +23,12 @@ int main(){
 	outFile.open("output.txt");
 	
 	if(!inFile.is_open()) {
-		cout << "input file NOT open" << endl;
+		std::cout << "input file NOT open" << std::endl;
 		return 0;
 	}
 	
 	if(!outFile.is_open()){
-		cout <<"output file NOT open" << endl;
+		std::cout <<"output file NOT open" << std::endl;
 		return 0;
 	}
 
@@ -41,7 +40,7 @@ int main(){
 		sNum = "";
 
 		if (cLine.empty()){
-			outFile << "Empty line" << endl;
+			outFile << "Empty line" << std::endl;
 		}
 		
 		else{
@@ -62,7 +61,7 @@ int main(){
 		
 			else if (sum > 100){
 		
-				outFile << "The total sum is greater than 100 for " << cLine << " only 100 will be printed" << endl;
+				outFile << "The total sum is greater than 100 for " << cLine << " only 100 will be printed" << std::endl;
 		
 				for (int i = 0; i < sum; i++){
 					outFile << cLine << " ";			
@@ -80,16 +79,16 @@ int main(){
 		num = 0;
 		sum = 0;
 		cLine = "";
-		outFile << endl;
+		outFile << std::endl;
 	}// end while loop	
 	
 	
 	inFile.close();
 	outFile.close();
 
-	string name;
+	std::string name;
 	int age;
-	string major;
+	std::string major;
 	int size;
 	int letters ;
 	int numbers;
@@ -97,19 +96,24 @@ int main(){
 	int space;
 
 
-	cout << "Enter your Name:" << endl;
-	cin >> name;
-	cout << "Enter your age:" << endl;
-	cin >> age;
-	cout <<"Enter your major:" << endl;
-	cin >> major;
+	std::cout << "Enter your Name:" << std::endl;
+	std::cin >> name;
+	std::cout << std::endl;
+	
+	std::cout << "Enter your age:" << std::endl;
+	std::cin >> age;
+	std::cout << std::endl;
+	
+	std::cout <<"Enter your major:" << std::endl;
+	std::cin >> major;
+	std::cout << std::endl;
 	
 	inFile.open("input.txt");
 	outFile.open("output.txt");
 	
-	outFile << "Hi " << name << endl;
-	outFile << "Your age is " << age << endl;
-	outFile << "Your major is " << major << endl;
+	outFile << "Hi " << name << std::endl;
+	outFile << "Your age is " << age << std::endl;
+	outFile << "Your major is " << major << std::endl;
 
 
 	while(getline(inFile, cLine)){
@@ -141,12 +145,12 @@ int main(){
 			x++;
 		}// end loop	
 		
-		outFile << endl;
+		outFile << std::endl;
 
 	}// end while loop
-	outFile << "Number of numbers are "<<numbers << endl;
-	outFile << "Number of letters are " << letters<< endl;
-	outFile << "Number of spaces are " << space << endl;
+	outFile << "Number of numbers are "<<numbers << std::endl;
+	outFile << "Number of letters are " << letters<< std::endl;
+	outFile << "Number of spaces are " << space << std::endl;
 	inFile.close();
 	outFile.close();
 }
