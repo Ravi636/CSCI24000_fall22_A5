@@ -14,3 +14,5 @@ over
 work
 1.1,0,1.3
 ok
+
+The isspace() function in C++ checks if the given character is a whitespace character or not 2 3 4 5.

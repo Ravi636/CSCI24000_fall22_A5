@@ -3,8 +3,9 @@
 #include <sstream>
 #include <string>
 #include <ctype.h>
-#include <stdio.h>
 #include <bits/stdc++.h>
+#include <cctype>
+
 
 using namespace std;
 
@@ -14,15 +15,11 @@ int main(){
 	ifstream inFile;
 	ofstream outFile;
 	string cLine;
-//	stringstream converter;
 	stringstream ss("");
-//	int counter;
-//	string sCounter;
-	string text;
-	float num = 0;
 	string sNum;
 	char fLetter;
-	int sum = 0;
+	double sum = 0;
+	double num = 0;
 	inFile.open("input.txt");
 	outFile.open("output.txt");
 	
@@ -41,6 +38,7 @@ int main(){
 		ss.clear();
 		ss.str("");
 		ss.str(cLine);
+		sNum = "";
 
 		if (cLine.empty()){
 			outFile << "Empty line" << endl;
@@ -49,7 +47,7 @@ int main(){
 		else{
 			while(getline(ss, sNum, ',')) {
 
-				num += stof(sNum);
+				num += stod(sNum);
 			}	
 			
 			sum = round(num);
@@ -85,6 +83,7 @@ int main(){
 		outFile << endl;
 	}// end while loop	
 	
+	
 	inFile.close();
 	outFile.close();
 
@@ -92,28 +91,62 @@ int main(){
 	int age;
 	string major;
 	int size;
+	int letters ;
+	int numbers;
+	char l;
+	int space;
 
-	cout << endl << "Enter your Name:";
+
+	cout << "Enter your Name:" << endl;
 	cin >> name;
-	cout << endl << "Enter your age:";
+	cout << "Enter your age:" << endl;
 	cin >> age;
-	cout << endl <<"Enter your major:";
+	cout <<"Enter your major:" << endl;
 	cin >> major;
 	
 	inFile.open("input.txt");
 	outFile.open("output.txt");
 	
+	outFile << "Hi " << name << endl;
+	outFile << "Your age is " << age << endl;
+	outFile << "Your major is " << major << endl;
+
+
 	while(getline(inFile, cLine)){
-			
-		for (int i = 0; i < N; i++) {
-		          
-		        cout<< cLine[i]<< " ";
+	
+		ss.clear();
+		ss.str("");
+
+		int x = 0;
+		while(cLine[x] != '\0'){      
+			l = cLine[x];
+
+			if(isdigit(l)){
+				numbers ++;
+			}
+			else if(isalpha(l)){
+				letters++;
+				if(isupper(l)){
+					l = toupper(l);
+				}
+				else{
+					l = tolower(l);
+				}
+			}
+			else if(isspace(l)){
+				space++;
+			}	
+			outFile << l;
+
+			x++;
+		}// end loop	
 		
-		}// end for loop	
+		outFile << endl;
 
 	}// end while loop
-
-
+	outFile << "Number of numbers are "<<numbers << endl;
+	outFile << "Number of letters are " << letters<< endl;
+	outFile << "Number of spaces are " << space << endl;
 	inFile.close();
 	outFile.close();
 }
