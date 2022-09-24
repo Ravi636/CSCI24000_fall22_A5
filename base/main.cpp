@@ -6,27 +6,26 @@
 #include <stdio.h>
 
 
-using namespace std;
 
 
 int main(){
 	
-	ifstream inFile;
-	ofstream outFile;
-	string cLine;
-	stringstream ss("");
-	string sNum;
+	std::fstream inFile;
+	std::ofstream outFile;
+	std::string cLine;
+	std::stringstream ss("");
+	std::string sNum;
 	float f;
 	int num;
 	inFile.open("input.txt");
 	outFile.open("output.txt");
 	
 	if(!inFile.is_open()) {
-		cout << "input file NOT open" << endl;
+		std::cout << "input file NOT open" << std::endl;
 		return 0;
 	}
 	if(!outFile.is_open()){
-		cout <<"output file NOT open" << endl;
+		std::cout <<"output file NOT open" << std::endl;
 		return 0;
 	}
 	
@@ -48,7 +47,7 @@ int main(){
 		}// end for loop
 		num = 0;
 		cLine = "";
-		outFile << endl;
+		outFile << std::endl;
 		
 
 		
